@@ -1,0 +1,31 @@
+/api/timestamp/2015-12-25
+
+{"unix":1451001600000,"utc":"Fri, 25 Dec 2015 00:00:00 GMT"}
+
+
+curl localhost:4100/api/timestamp/1450137600
+
+{"unix":1450137600,"utc":"Sat, 17 Jan 1970 18:48:57 GMT"}
+
+
+
+curl localhost:4100/api/timestamp
+curl localhost:4100/api/timestamp/
+
+now()
+
+
+Selfcheck
+	string option1 = curl localhost:4100/api/timestamp/1450137600
+	string expected1 = {"unix":1451001600000,"utc":"Fri, 25 Dec 2015 00:00:00 GMT"}
+
+	string option2 = curl localhost:4100/api/timestamp/1450137600
+	string expected2 = {"unix":1450137600,"utc":"Sat, 17 Jan 1970 18:48:57 GMT"}
+
+	string option3 = curl localhost:4100/api/timestamp
+	string expected1 = now()
+
+	string option4 = curl localhost:4100/api/timestamp/
+	string expected1 = now()
+
+
