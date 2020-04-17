@@ -5,6 +5,12 @@
 Get HTTPS working on localhost
 - https://www.freecodecamp.org/news/how-to-get-https-working-on-your-local-development-environment-in-5-minutes-7af615770eec/
 
+
+Look for "Importing a Certificate into the System-Wide Certificate Authority Database"
+on the following page
+https://help.ubuntu.com/community/OpenSSL
+
+
 Get stub (4000) to return bar (from 4100) when calling foo
 
 

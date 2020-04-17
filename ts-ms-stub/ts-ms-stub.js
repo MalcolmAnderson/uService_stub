@@ -1,4 +1,5 @@
 const http = require("http");
+const https = require("https");
 const fs = require("fs");
 const fetch = require("node-fetch");
 
@@ -22,10 +23,13 @@ const requestHandler = (req, res) => {
         if (dateString === undefined || dateString.trim() === ""){
             timestamp = "good stuff";
         } else if (dateString == "foo"){
-            timestamp = fetch("localhost:4100/api/timestamp/foo")
+            console.log("so far so good");
+            var fetchVal = fetch("http://localhost:4100/api/timestamp/foo")
                 .then((response) => {console.log(response)})
                 .catch((err) => {console.log(err)});
-            //timestamp = "mock";
+            console.log("printing fetchVal");
+            console.log(fetchVal);
+            timestamp = "mock";
         } else {
             const date = !isNaN(dateString)
                 ? new Date(parseInt(dateString))
@@ -51,12 +55,22 @@ const requestHandler = (req, res) => {
     }
 };
 
-const server = http.createServer(requestHandler);
+const server = https.createServer({
+    key: fs.readFileSync('../../SSLPlayground/server.key'),
+    cert: fs.readFileSync('../../SSLPlayground/server.cert')
+}, requestHandler);
 
 server.listen(process.env.PORT || 4000, err => {
-
-    if(err) throw err;
-
-    console.log('Server running on PORT ${server.address().port}');
-
+     if(err) throw err;
+     console.log('Server running on PORT ${server.address().port}');
 });
+
+// const options = {
+//     key: fs.readFileSync('../../SSLPlayground/server.key'),
+//     cert: fs.readFileSync('../../SSLPlayground/server.cert')
+// };
+
+// const server = https.createServer(options, function(req, res){
+//     res.writeHead(200);
+//     res.end("hello world\n");
+// }).listen(4000);

@@ -12,6 +12,7 @@
     "node": "10.15.2"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "request": "^2.88.2"
   }
 }
