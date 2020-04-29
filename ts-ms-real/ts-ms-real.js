@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+var count = 0;
 
 const getTimeStamp = date => ({
     unix: date.getTime(),
@@ -14,8 +15,13 @@ const requestHandler = (req, res) => {
             res.writeHead(200, { "Content-Type": "text/html"});
             res.end(html);
         });
+    } else if (req.url.startsWith("/count")){
+        // does not work, should return the value "1"
+        count++;
+        res.writeHead(200, { "Content-Type": "text/html"});
+        res.end(count);
     } else if (req.url.startsWith("/api/timestamp")){
-        const dateString = req.url.split("/api/timestamp/")[1];
+            const dateString = req.url.split("/api/timestamp/")[1];
         let timestamp;
 
         if (dateString === undefined || dateString.trim() === ""){
