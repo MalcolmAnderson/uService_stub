@@ -33,12 +33,12 @@ Case 2.1 - Unit test for Case 2.1
 - Test 3 - change and save config file with "bar" - system returns bar without being reset  
 
 Case 2.2 - Unit test for Case 2.2  
-	start up 2 copies of real one on 4100 and one on 4200, both return their port number  
-	startup fake defaulting to 4100  
-	send a change configuration message to fake to point to 4200  
-	Test 1 - fake starts pointing to the service on 4200  
-	Test 2 - fake audit history contains changes to configuration.  
-	test 3 - send a "ResetToDefault" message, and fake reconfigures itself from config file  
+    start up 2 copies of real one on 4100 and one on 4200, both return their port number  
+    startup fake defaulting to 4100  
+    send a change configuration message to fake to point to 4200  
+    Test 1 - fake starts pointing to the service on 4200  
+    Test 2 - fake audit history contains changes to configuration.  
+    test 3 - send a "ResetToDefault" message, and fake reconfigures itself from config file  
 - test 4 - send message to point to 4200, see change  
 -- restart service - see that it points to 4100  
 -- send message to point to 4200, see change  
