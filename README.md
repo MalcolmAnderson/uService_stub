@@ -25,9 +25,9 @@ Case 2 - Unit test for Case 1
 		foo calls foo on real and returns foo2
 		
 Case 2.1 - Unit test for Case 2.1  
-	Likely design - method for loadConfiguration and some kind of timer service to check the configuration timestamp  
-	all tests use fake as a test bench, no changes are made to fake during testing  
-	real - return "code" comes from a configuration file with default value of "default"  
+- Likely design - method for loadConfiguration and some kind of timer service to check the configuration timestamp  
+* all tests use fake as a test bench, no changes are made to fake during testing  
++ real - return "code" comes from a configuration file with default value of "default"  
 	Test 1 - check code without configuration - it returns "default"  
 	Test 2 - check code with configuration - it returns "from config file"  
 	Test 3 - change and save config file with "bar" - system returns bar without being reset  
