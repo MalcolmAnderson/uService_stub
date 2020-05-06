@@ -39,9 +39,9 @@ Case 2.2 - Unit test for Case 2.2
 	Test 1 - fake starts pointing to the service on 4200  
 	Test 2 - fake audit history contains changes to configuration.  
 	test 3 - send a "ResetToDefault" message, and fake reconfigures itself from config file  
--test 4 - send message to point to 4200, see change  
---restart service - see that it points to 4100  
---send message to point to 4200, see change  
+- test 4 - send message to point to 4200, see change  
+-- restart service - see that it points to 4100  
+-- send message to point to 4200, see change  
 		send "SaveConfiguration" message  
 		restart service - see that it points to 4200  
 		send ResetToDefault (read configuration file) - see that it points to 4200  
