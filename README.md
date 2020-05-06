@@ -26,11 +26,11 @@ Case 2 - Unit test for Case 1
 		
 Case 2.1 - Unit test for Case 2.1  
 - Likely design - method for loadConfiguration and some kind of timer service to check the configuration timestamp  
-* all tests use fake as a test bench, no changes are made to fake during testing  
-+ real - return "code" comes from a configuration file with default value of "default"  
-	Test 1 - check code without configuration - it returns "default"  
-	Test 2 - check code with configuration - it returns "from config file"  
-	Test 3 - change and save config file with "bar" - system returns bar without being reset  
+- all tests use fake as a test bench, no changes are made to fake during testing  
+- real - return "code" comes from a configuration file with default value of "default"  
+- Test 1 - check code without configuration - it returns "default"  
+- Test 2 - check code with configuration - it returns "from config file"  
+- Test 3 - change and save config file with "bar" - system returns bar without being reset  
 
 Case 2.2 - Unit test for Case 2.2  
 	start up 2 copies of real one on 4100 and one on 4200, both return their port number  
@@ -39,9 +39,9 @@ Case 2.2 - Unit test for Case 2.2
 	Test 1 - fake starts pointing to the service on 4200  
 	Test 2 - fake audit history contains changes to configuration.  
 	test 3 - send a "ResetToDefault" message, and fake reconfigures itself from config file  
-	test 4 - send message to point to 4200, see change  
-		restart service - see that it points to 4100  
-		send message to point to 4200, see change  
+-test 4 - send message to point to 4200, see change  
+--restart service - see that it points to 4100  
+--send message to point to 4200, see change  
 		send "SaveConfiguration" message  
 		restart service - see that it points to 4200  
 		send ResetToDefault (read configuration file) - see that it points to 4200  
