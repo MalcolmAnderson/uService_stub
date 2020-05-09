@@ -16,14 +16,18 @@ Get stub (4000) to return bar (from 4100) when calling foo
 
 Use cases
 Case 1 - High == basic functionality
-	real - foo returns bar
-	stub - foo calls foo on real and returns bar
+- real - foo returns bar
+- stub - foo calls foo on real and returns bar
 
 Case 2 - Unit test for Case 1
-	real - change foo to return return foo2
-	stub - No change to stub
-		foo calls foo on real and returns foo2
-		
+- real - change foo to return return foo2
+- stub - No change to stub
+- - foo calls foo on real and returns foo2
+
+Task - allow the port number to be set from the command line when starting the service
+Task - allow for the service to be shut down from the command line (is this a bad idea?)
+Task - use curl to creat batch / shell files that will perform tests and present intelligent feedback
+
 Case 2.1 - Unit test for Case 2.1  
 - Likely design - method for loadConfiguration and some kind of timer service to check the configuration timestamp  
 - all tests use fake as a test bench, no changes are made to fake during testing  
