@@ -1,0 +1,1 @@
+curl http://localhost:4100/api/timestamp/foo
