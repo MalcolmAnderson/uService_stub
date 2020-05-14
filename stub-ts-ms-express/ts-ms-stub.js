@@ -48,8 +48,10 @@ app.get('/foo2', function (req, res) {
 
 
 https.createServer({
-    key: fs.readFileSync('cert/server.key'),
-    cert: fs.readFileSync('cert/server.cert')
+    // key: fs.readFileSync('./cert/server.key'),
+    // cert: fs.readFileSync('./cert/server.cert')
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.cert')
 }, app)
     .listen(4150, function () {
 
