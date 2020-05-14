@@ -27,7 +27,7 @@ const requestHandler = (req, res) => {
         if (dateString === undefined || dateString.trim() === ""){
             timestamp = getTimeStamp(new Date());
         } else if (dateString == "foo"){
-            timestamp = "bar"
+            timestamp = "bar3"
         } else {
             const date = !isNaN(dateString)
                 ? new Date(parseInt(dateString))
@@ -42,7 +42,7 @@ const requestHandler = (req, res) => {
             }
         }
         res.writeHead(200, { "Content-Type": "application/json"});
-        res.end(JSON.stringify(timestamp));
+        res.end(timestamp);
     } else {
         fs.readFile("views/404.html", (err, html) =>{
             if (err) throw err;
