@@ -5,7 +5,7 @@ var request = require('request')
 var app = express()
 
 app.get('', function (req, res) {
-    res.redirect('https://localhost:4150/foo')
+    res.redirect('https://localhost:4000/foo')
 })
 
 app.get('/foo', function (req, res) {

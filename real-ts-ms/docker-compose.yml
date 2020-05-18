@@ -1,0 +1,11 @@
+version: '2.4'
+
+services:
+  real-ts-ms:
+    build: .
+    init: true
+    ports:
+      - 4100:4100
+    volumes:
+      - .:/node/app
+      - /node/app/node_modules

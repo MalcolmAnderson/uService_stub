@@ -22,7 +22,8 @@ const requestHandler = (req, res) => {
         res.end(count);
     } else if (req.url.startsWith("/foo")) {
         timestamp = "bar23"
-        res.writeHead(200, { "Content-Type": "application/json" });
+        // res.writeHead(200, { "Content-Type": "application/json" });
+        res.writeHead(200, { "Content-Type": "string" });
         console.log(typeof (timestamp));
         console.log(timestamp);
         res.end(timestamp);
@@ -34,6 +35,7 @@ const requestHandler = (req, res) => {
             res.end(html);
         });
     }
+   
 };
 
 const server = http.createServer(requestHandler);

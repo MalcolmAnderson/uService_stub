@@ -1,0 +1,11 @@
+version: '2.4'
+
+services:
+  stub-ts-ms:
+    build: .
+    init: true
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/node/app
+      - /node/app/node_modules
