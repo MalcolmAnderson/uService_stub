@@ -1,5 +1,7 @@
 const http = require("http");
 const fs = require("fs");
+const url = require("url");
+
 var count = 0;
 var payload = "bar3";
 
@@ -16,16 +18,23 @@ const requestHandler = (req, res) => {
             res.writeHead(200, { "Content-Type": "text/html" });
             res.end(html);
         });
+    } else if (req.url.startsWith("/fooConfigure")) {
+        const queryObject = url.parse(req.url, true).query;
+        console.log(queryObject);
+        // console.log(queryObject.bar);
+        // console.log(queryObject.payload);
+        // something something if newPayload == null or undefined
+        payload = queryObject.payload;
+
+        res.writeHead(200, { "Content-Type": "string" });
+        console.log(payload);
+        res.end(payload);
     } else if (req.url.startsWith("/count")) {
-        // does not work, should return the value "1"
         count++;
         res.writeHead(200, { "Content-Type": "text/html" });
         res.end(count);
     } else if (req.url.startsWith("/foo")) {
-        //timestamp = "bar"
-        // res.writeHead(200, { "Content-Type": "application/json" });
         res.writeHead(200, { "Content-Type": "string" });
-        console.log(typeof (payload));
         console.log(payload);
         res.end(payload);
     } else {
