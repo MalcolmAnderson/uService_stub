@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 var count = 0;
+var payload = "bar3";
 
 const getTimeStamp = date => ({
     unix: date.getTime(),
@@ -21,12 +22,12 @@ const requestHandler = (req, res) => {
         res.writeHead(200, { "Content-Type": "text/html" });
         res.end(count);
     } else if (req.url.startsWith("/foo")) {
-        timestamp = "bar23"
+        //timestamp = "bar"
         // res.writeHead(200, { "Content-Type": "application/json" });
         res.writeHead(200, { "Content-Type": "string" });
-        console.log(typeof (timestamp));
-        console.log(timestamp);
-        res.end(timestamp);
+        console.log(typeof (payload));
+        console.log(payload);
+        res.end(payload);
     } else {
         fs.readFile("views/404.html", (err, html) => {
             if (err) throw err;
@@ -35,7 +36,7 @@ const requestHandler = (req, res) => {
             res.end(html);
         });
     }
-   
+
 };
 
 const server = http.createServer(requestHandler);
