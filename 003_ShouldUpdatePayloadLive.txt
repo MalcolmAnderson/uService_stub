@@ -1,0 +1,18 @@
+As an adminstrator of the real service
+I want the service to check for config changes every 5 seconds and reconfigure itself if file has change
+So that changing the payload doesn't require a service restart
+
+cat foo.config      // or appropriate configuration file name
+payload: bar3       // or appropriate configuration file syntax
+
+curl http://localhost:4100/foo/
+bar3
+
+change foo.config payload line to Hi Bob
+payload: Hi Bob     // figure out how to appropriately handle spaces in config items
+
+save configuration file
+
+curl http://localhost:4100/foo/
+Hi Bob
+

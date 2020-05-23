@@ -1,0 +1,14 @@
+As an adminstrator of the real service
+I want to be able to change the payload with a service call
+So that I don't have to stop the service to impact the results.
+
+
+curl http://localhost:4100/foo/
+bar3
+
+curl http://localhost:4100/fooConfigure?payload=new%20payload
+new payload
+
+curl http://localhost:4100/foo/
+new payload
+
