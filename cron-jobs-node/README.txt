@@ -1,0 +1,1 @@
+This Code provides a hack that will check a named config file every 2 seconds to see if the files last modified time has changed.
