@@ -71,8 +71,8 @@ var m = schedule.scheduleJob({ rule: `*/${errorLogFrequencyInSeconds} * * * * *`
 });
 
 var n = schedule.scheduleJob({ rule: `*/${quickconfigCheckFrequencyInSeconds} * * * * *` }, function () {
-    delete require.cache[require.resolve('log')];
-    log = bunyan.createLogger(logConfiguration);
+    //delete require.cache[require.resolve('log')];
+    //log = bunyan.createLogger(logConfiguration);
     //console.log(config.get("Bunyan.level"));
     if (flipper) {
         log.level = "INFO";
