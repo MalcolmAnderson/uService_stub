@@ -1,4 +1,9 @@
 {
+    "_comment": {
+        "c1": "A file to make changes to to trigger the file change.",
+        "c2": "change and save this file during run time to see the change being detected.",
+        "c3": "The App section is an example and not currently used"
+    },
     "App": {
         "restApiEndpoint": {
             "version1ContactPath": "/v1/contact",
@@ -12,6 +17,6 @@
     },
     "Bunyan": {
         "name": "myapp",
-        "level": "Info"
+        "level": "ERROR"
     }
 }
