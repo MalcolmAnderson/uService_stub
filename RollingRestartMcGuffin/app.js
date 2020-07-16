@@ -25,9 +25,9 @@ let valuesAreEqual = configLastModifiedTime == getFileLastModifiedTimeInMillisec
 
 function longRunningProcess() {
     count++;
-    for (let i = 0; i < 5; i++) {
-        log.info({ lrpStatus: 'step ' + i + 'of 5' });
-        sleep.sleep(7);
+    for (let i = 1; i <= 5; i++) {
+        log.info({ lrpStatus: 'step ' + i + ' of 5' });
+        sleep.sleep(2);
     }
     count--;
 }
