@@ -7,7 +7,7 @@ const config = require('config');
 
 let configFileName = "./config/default.json";
 
-let displayFileCheckingDialog = false;
+let displayFileCheckingDialog = true;
 
 let configCheckInSeconds = 1;
 let infoLogFrequencyInSeconds = 5;
@@ -31,6 +31,7 @@ var j = schedule.scheduleJob({ rule: `*/${configCheckInSeconds} * * * * *` }, fu
         if (displayFileCheckingDialog) {
             console.log('Time for do the thing, and update the last modified time stamp!');
         }
+        // FIRE MESSAGE TO BLUEMIX TO STOP TRAFFIC AND RESTART SERVICE
         configLastModifiedTime = getFileLastModifiedTimeInMilliseconds(configFileName);
     }
 });

@@ -1,0 +1,27 @@
+Specs for rolling restart test
+
+Process has an input buffer of 5 elements and can have 6 in process at any given time, 5 in the buffer, 1 in process.
+
+The process for each element is as follows
+
+1 - intake: 
+success - add item to buffer - log info "Item added to buffer"
+failure -  if buffer is full, return failure to calling program and log "Item xyz rejected, no room in buffer"
+
+2 - process handler starts every 10 seconds  - taking an item off the buffer and logs "beginning process"
+
+3 - each item takes 35 seconds, logging 5 times, every 7 seconds. (45 seconds for the first item, 35 seconds for each item after.)
+(maybe add a 2 second buffer "between stages"
+
+Process maintains 2 properties - 
+1 - returns an array with the id of the elements in the buffer
+1 - returns a count of the items in the buffer
+1 - returns the id of the element being executed
+1 - returns the state of the executing process (1-5)
+
+test
+Call process 7 times quickly 
+call the restart process
+see if all items are properly processed before process is shut down
+
+

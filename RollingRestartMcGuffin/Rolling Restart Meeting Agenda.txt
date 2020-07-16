@@ -1,0 +1,37 @@
+Purpose
+                Attempt to do a rolling restart of a service while changing logging levels
+
+Agenda
+                Picking BFF or another service
+                                Check the level of logging
+                                Ping the service load balancer to confirm connection
+                                Ping an instance of the service
+                                Change the log level of the service
+                                Issue a restart command to a single instance 
+                                                Spam both the instance and the service load balance in an attempt to get a 404 or other failure
+                Expected results
+                                Instance is not available, but load balance service is uninterrupted
+                Continue process for other instances
+                Attempt process using the rolling strategy
+
+Resources
+                The subsection Rolling App Deployments section of the cloudfoundy wiki has a section on doing a 
+rolling restart on an app that appears to fit the use case
+https://docs.cloudfoundry.org/devguide/deploy-apps/rolling-deploy.html
+                Restart an App
+
+To restart your app without downtime, run the appropriate command below. Restart 
+an app to apply configuration updates that require a restart, such as environment 
+variables or service bindings.
+cf CLI v7:
+Run:
+                cf7 restart APP-NAME --strategy rolling
+Where APP-NAME is the name of the app.
+                
+                There is a 2017 ticket with cloudfoundry where the functionality and a manual workaround is discussed
+                                https://github.com/cloudfoundry/cli/issues/1064
+In the meantime, you can either restart the instances one by one manually (or in a script) with 
+cf restart-app-instance) 
+or search for a CLI plugin (e.g. https://github.com/Comcast/cf-recycle-plugin) to do it for you.
+
+
